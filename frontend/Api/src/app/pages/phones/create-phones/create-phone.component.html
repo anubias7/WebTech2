@@ -1,0 +1,97 @@
+<mat-card> <mat-card-title align="center">Telefon hozzáadása</mat-card-title>
+
+    <form [formGroup]="phoneFormGroup">
+
+        <div class="row">
+
+            <mat-form-field appearance="fill" class="col-lg-8">
+                <mat-label>Telefon márkaneve</mat-label>
+
+                <input type="text" matInput formControlName="brand">
+            </mat-form-field>
+
+            <div *ngIf="phoneFormGroup.controls.brand.touched === true">
+                <mat-error *ngIf="phoneFormGroup.controls.brand.hasError('required')">
+                    Mező kitöltése kötelező !
+                </mat-error>
+
+                <mat-error *ngIf="phoneFormGroup.controls.brand.hasError('maxlength')">
+                    The specified length can be up to 20 characters.
+                    
+                </mat-error>
+            </div>
+            <mat-form-field appearance="fill" class="col-lg-8">
+
+                <mat-label>Telefon tipusa</mat-label>
+                <input type="text" matInput formControlName="type">
+
+            </mat-form-field>
+
+            <div *ngIf="phoneFormGroup.controls.type.touched === true">
+
+                <mat-error *ngIf="phoneFormGroup.controls.type.hasError('required')">
+                    Mező kitöltése kötelező !
+                </mat-error>
+                <mat-error *ngIf="phoneFormGroup.controls.type.hasError('maxlength')">
+                    The specified length can be up to 20 characters.
+                </mat-error>
+            </div>
+            <mat-form-field appearance="fill" class="col-lg-8">
+                <mat-label>Akkumulátor</mat-label>
+                <input type="text" matInput formControlName="battery">
+            </mat-form-field>
+
+            <div *ngIf="phoneFormGroup.controls.battery.touched === true">
+                <mat-error *ngIf="phoneFormGroup.controls.battery.hasError('required')">
+
+                    Mező kitöltése kötelező !
+                </mat-error>
+                <mat-error *ngIf="phoneFormGroup.controls.battery.hasError('maxlength')">
+                    The specified length can be up to 20 characters.
+                </mat-error>
+            </div>
+            <mat-form-field class="example-full-width" appearance="fill" class="col-lg-8">
+                <mat-label>Camera</mat-label>
+                <input matInput [matDatepicker]="picker" formControlName="date">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+
+                <mat-datepicker touchUi #picker></mat-datepicker>
+            </mat-form-field>
+            <div *ngIf="phoneFormGroup.controls.date.touched === true">
+                <mat-error *ngIf="phoneFormGroup.controls.date.hasError('required')">
+
+                    Mező kitöltése kötelező !
+                </mat-error>
+                <mat-error *ngIf="phoneFormGroup.controls.date.hasError('maxlength')">
+                    The specified length can be up to 20 characters.
+                </mat-error>
+            </div>
+            <mat-form-field appearance="fill" class="col-lg-8">
+                <mat-label>Telefon értéke</mat-label>
+
+                <input type="number" matInput formControlName="price">
+            </mat-form-field>
+            <div *ngIf="phoneFormGroup.controls.price.touched === true">
+                <mat-error *ngIf="phoneFormGroup.controls.price.hasError('required')">
+                    Mező kitöltése kötelező !
+                </mat-error>
+            </div>
+            <mat-form-field appearance="fill" class="col-lg-8">
+                <mat-label>Tömege</mat-label>
+                <input type="number" matInput formControlName="quantity">
+            </mat-form-field>
+
+            <div *ngIf="phoneFormGroup.controls.quantity.touched === true">
+                <mat-error *ngIf="phoneFormGroup.controls.quantity.hasError('required')">
+                    Mező kitöltése kötelező !
+                </mat-error>
+            </div>
+        </div>
+        <div>
+            <button mat-raised-button matDialogClose>Back</button>
+
+            <button color="primary" [disabled]="!phoneFormGroup.valid" (click)="createProduct()" mat-raised-button
+                matDialogClose>Add</button>
+        </div>
+    </form>
+</mat-card>

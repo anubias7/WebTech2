@@ -1,0 +1,21 @@
+<mat-toolbar fxLayout="row" class="navbar">
+    <b>phone search</b>
+    <span fxFlex></span>
+    <button mat-button fxHide.xs (click)="login()">
+        <mat-icon class="mr">login</mat-icon>
+        Belépés
+    </button>
+    <button mat-button fxHide.xs (click)="register()">
+        <mat-icon class="mr">login</mat-icon>
+        Regisztárció
+    </button>
+
+</mat-toolbar>
+<mat-phoned style="opacity: 0.95; margin-top:100px; width:60%; margin-left:20%; text-align: center;"
+    class="font mat-elevation-z8 content">
+    <h1>Phone register system website <br></h1>
+    <p>
+     Egy mobil nyilvántartó rendszer, ahol az összes mobiltelefon megtalálató !
+    </p>
+    <img style="width: 70%;" src="assets/logo.jpg">
+</mat-phoned>
